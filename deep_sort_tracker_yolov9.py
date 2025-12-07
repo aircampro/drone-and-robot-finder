@@ -109,7 +109,7 @@ flags.DEFINE_string('output', './output/output.mp4', 'path to output video')
 flags.DEFINE_float('conf', 0.50, 'confidence threshold')
 flags.DEFINE_integer('blur_id', None, 'class ID to apply Gaussian Blur')
 flags.DEFINE_integer('class_id', None, 'class ID to track')
-flags.DEFINE_string('yolo_model', './weights/yolov9-e.pt', 'path to yolo v9 model')
+flags.DEFINE_string('yolo_model', './weights/yolov9-e.pt', './drone2.v8i.yolov9/')
 
 def main(_argv):
     global RUN_LOOP
