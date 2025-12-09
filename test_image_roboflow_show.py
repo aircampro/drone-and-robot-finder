@@ -109,14 +109,15 @@ if __name__ == '__main__':
                 bbox = BoundingBox(j['predictions'][i]['x'], j['predictions'][i]['y'], j['predictions'][i]['width'], j['predictions'][i]['height'],j['predictions'][i]['class'])   
                 if len(preds) == len(vec_preds):                                                                           # should really check unique id but as we dont have it ill check for asme number of classes
                     bbox.movement(i, vec_preds)                                                                            # calculate the movement between the frames for each class 
+                    text = f"{bbox.classid} x:{bbox.ox} y:{bbox.oy}"  
+                else:
+                    text = f"{bbox.classid}"                 
                 try:            
-                    cv2.rectangle(frame, (bbox.x, bbox.y), (bbox.x1, bbox.y1), class_colors[bbox.classid], 2) 
-                    text = f"{bbox.classid} x:{bbox.ox} y:{bbox.oy}"            
+                    cv2.rectangle(frame, (bbox.x, bbox.y), (bbox.x1, bbox.y1), class_colors[bbox.classid], 2)           
                     cv2.rectangle(frame, (bbox.x - 1, bbox.y - 20), (bbox.x + len(text) * 12, bbox.y), class_colors[bbox.classid], -1)
                     cv2.putText(frame, text, (bbox.x + 5, bbox.y - 8), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
                 except:
-                    cv2.rectangle(frame, (bbox.x, bbox.y), (bbox.x1, bbox.y1), (255,255,255), 2) 
-                    text = f"{bbox.classid} x:{bbox.ox} y:{bbox.oy}"            
+                    cv2.rectangle(frame, (bbox.x, bbox.y), (bbox.x1, bbox.y1), (255,255,255), 2)          
                     cv2.rectangle(frame, (bbox.x - 1, bbox.y - 20), (bbox.x + len(text) * 12, bbox.y), (255,255,255), -1)
                     cv2.putText(frame, text, (bbox.x + 5, bbox.y - 8), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)            
             cv2.imshow('DrRoPe Detector 2nd Frame Comparison', frame)        
