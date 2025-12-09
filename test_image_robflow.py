@@ -39,7 +39,7 @@ if __name__ == '__main__':
     if len(sys.argv[0]) >= 1:
         YOUR_IMAGE=str(sys.argv[1])
     else:
-        YOUR_IMAGE="Capture1"
+        YOUR_IMAGE="Capture1.jpg"
     # use shell wrapper
     shl = Shell()
     (return_code, stdout) = shl.cmd(f'base64 {YOUR_IMAGE}').pipe('curl -d @- https://detect.roboflow.com/drone2-epzxe/7?api_key=Mqvor12zsKc38eyJUP97').commit()
@@ -54,3 +54,4 @@ if __name__ == '__main__':
         jj=json.loads(p)
         print(f"predictions {jj['predictions']}")
         print(f"image {jj['image']}")
+
