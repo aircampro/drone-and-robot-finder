@@ -168,9 +168,12 @@ def main(_argv):
     colors = np.random.randint(0, 255, size=(len(class_names), 3)) 
 
     while RUN_LOOP >= 1:
-        ret, frame = cap.read()
-        if not ret:
-            break
+        if RUN_LOOP == 1:
+            frame = im
+        else:
+            ret, frame = cap.read()
+            if not ret:
+                break
         # Run model on each frame
         results = model(frame)
         detect = []
