@@ -2,3 +2,4 @@ This repository is showing my results from testing a training a vision model to 
 The model is RF-DETR (Small) MS Coco format
 v3 is the smaller first set - works quite nice 
 v7 is later with more image it finds more types of drone esp. military but needs a lower threshold to see objects
+a dataset has been made on teachable machine to test url is https://teachablemachine.withgoogle.com/models/uqfAqCcJZ/
