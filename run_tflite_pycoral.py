@@ -1,5 +1,5 @@
 #
-# This example code generated from teachable machine 
+# This example code generated from teachable machine https://teachablemachine.withgoogle.com/train/image
 # TensorFlowLite Quantized.
 # the data-set is also testable online running on the cloud here :- https://teachablemachine.withgoogle.com/models/uqfAqCcJZ/
 #
@@ -15,10 +15,10 @@ from pycoral.adapters import common
 from pycoral.adapters import classify
 
 # the TFLite converted to be used with edgetpu
-modelPath = '<PATH_TO_MODEL>'
+modelPath = 'converted_tflite_quantized/model.tflite'
 
 # The path to labels.txt that was downloaded with your model
-labelPath = '<PATH_TO_LABELS>'
+labelPath = 'converted_tflite_quantized/labels.txt'
 
 # This function takes in a TFLite Interptere and Image, and returns classifications
 def classifyImage(interpreter, image):
