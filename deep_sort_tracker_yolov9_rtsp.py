@@ -155,7 +155,7 @@ def main(_argv):
     if not camera.start():
         print("Failed to start IPyCam object")
         return
-       
+
     print(f"\n{'='*60}")
     print(f"  IPyCam is running!")
     print(f"{'='*60}")
@@ -255,3 +255,4 @@ if __name__ == '__main__':
         app.run(main)
     except SystemExit:
         pass
+
