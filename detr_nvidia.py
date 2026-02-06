@@ -30,7 +30,7 @@ def sig_hangup_handler(sig, frame):
     sys.stderr.write('sig_hangup_handler({})\n'.format(sig))
     try:
         sys.stderr.write('restarting...\n')
-        os.execve('/usr/bin/python3', ['/usr/bin/python3', 'deep_sort_tracker_yolov9.py'], {})
+        os.execve('/usr/bin/python3', ['/usr/bin/python3', 'detr_nvidia.py'], {})
     except OSError as e:
         sys.stderr.write("execve():{}\n".format(e))
         os._exit(1)
