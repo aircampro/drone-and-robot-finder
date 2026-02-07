@@ -30,7 +30,7 @@ def sig_hangup_handler(sig, frame):
     sys.stderr.write('sig_hangup_handler({})\n'.format(sig))
     try:
         sys.stderr.write('restarting...\n')
-        os.execve('/usr/bin/python3', ['/usr/bin/python3', 'sys.argv[0]'], {})
+        os.execve('/usr/bin/python3', ['/usr/bin/python3', sys.argv[0]], {})
     except OSError as e:
         sys.stderr.write("execve():{}\n".format(e))
         os._exit(1)
@@ -205,7 +205,8 @@ def main(_argv):
                 print(f"Detected {model.config.id2label[label.item()]} with confidence ")
                 print(f"{round(score.item(), 3)} at location {box}")
                 x1, y1, x2, y2 = box.tolist()
-                cv2.rectangle(frame,(x1,y1),(x2,y2),(0,0,255),2,1)
+                #cv2.rectangle(frame,(x1,y1),(x2,y2),(0,0,255),2,1)
+                cv2.rectangle(frame,(y1,x1),(y2,x2),(0,0,255),2,1)
                 cv2.putText(frame, model.config.id2label[label.item()], (x1+5, y1+5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
 
         cv2.imshow('model DETR', frame)
